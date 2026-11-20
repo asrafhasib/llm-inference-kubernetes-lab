@@ -1,0 +1,14 @@
+# Local/editor files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.log
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*secret*.yaml
+*credentials*
+kubeconfig

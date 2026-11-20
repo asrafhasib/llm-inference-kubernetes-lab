@@ -1,0 +1,11 @@
+# Local kind cluster configuration for the simulator lab.
+# The inference gateway's LoadBalancer EXTERNAL-IP may remain <pending> in kind.
+# Use kubectl port-forward for local access unless you separately install/configure
+# a kind load-balancer integration.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: llm-inference
+nodes:
+  - role: control-plane
+  - role: worker
+  - role: worker

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+GATEWAY_NAMESPACE="${GATEWAY_NAMESPACE:-default}"
+GATEWAY_SERVICE="${GATEWAY_SERVICE:-inference-gateway}"
+LOCAL_PORT="${LOCAL_PORT:-8080}"
+REMOTE_PORT="${REMOTE_PORT:-80}"
+echo "Forwarding ${GATEWAY_NAMESPACE}/${GATEWAY_SERVICE} ${LOCAL_PORT}:${REMOTE_PORT}"
+exec kubectl port-forward -n "${GATEWAY_NAMESPACE}" "svc/${GATEWAY_SERVICE}" "${LOCAL_PORT}:${REMOTE_PORT}"
